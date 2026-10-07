@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Rational {
     private int a; // Чисельник
     private int b; // Знаменник
@@ -126,12 +127,12 @@ public class Rational {
         System.out.println("Сума: " + new Rational(1, 2).add(y)); // 5/6
         System.out.println("Більше: " + x.isGreater(y)); // true
 
+
         System.out.println("\nВведіть чисельник і знаменник першого дробу:");
         Scanner scanner = new Scanner(System.in);
         Rational first = new Rational(scanner.nextInt(), scanner.nextInt());
         System.out.println("Введіть чисельник і знаменник другого дробу:");
         Rational second = new Rational(scanner.nextInt(), scanner.nextInt());
-
         System.out.println("Перший дріб: " + first);
         System.out.println("Другий дріб: " + second);
         System.out.println("Чисельник першого: " + first.getChyselnyk());

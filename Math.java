@@ -39,8 +39,8 @@ public class Math {
         return x;
     }
 
-    public long lcm() {
-        return (long) a / gcd() * b;
+    public int lcm() {
+        return a / gcd() * b;
     }
 
     @Override
