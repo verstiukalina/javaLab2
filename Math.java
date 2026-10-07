@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Math {
     private int a, b;
     private static int count = 0;
@@ -39,7 +40,7 @@ public class Math {
     }
 
     public long lcm() {
-        return a / gcd() * b;
+        return (long) a / gcd() * b;
     }
 
     @Override
@@ -52,5 +53,21 @@ public class Math {
     @Override
     public String toString() {
         return "Math(" + a + ", " + b + ")";
+    }
+    public static void main(String[] args) {
+        System.out.println("Тести Math:");
+        Math numbers = new Math(12, 18);
+        System.out.println("Числа: " + numbers);
+        System.out.println("НСД: " + numbers.gcd()); // 6
+        System.out.println("НСК: " + numbers.lcm()); // 36
+
+        System.out.println("\nВведіть два натуральні числа:");
+        Scanner scanner = new Scanner(System.in);
+        Math entered = new Math(scanner.nextInt(), scanner.nextInt());
+        System.out.println("Числа: " + entered);
+        System.out.println("НСД: " + entered.gcd());
+        System.out.println("НСК: " + entered.lcm());
+        System.out.println("Кількість об'єктів: " + Math.getCount());
+        scanner.close();
     }
 }

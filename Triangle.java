@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.Arrays;
 
 public class Triangle {
@@ -45,11 +46,11 @@ public class Triangle {
     public void compareTo(Triangle other) {
         int result = Double.compare(getArea(), other.getArea());
         if(result == -1) {
-            System.out.println("В другого трикутника менша площа");
+            System.out.println("У другого трикутника площа більша");
         } else if (result == 0) {
             System.out.println("Площа однакова");
         } else {
-            System.out.println("В другого трикутника площа більша");
+            System.out.println("У другого трикутника площа менша");
         }
     }
 
@@ -69,5 +70,29 @@ public class Triangle {
     @Override
     public String toString() {
         return "Трикутник(" + a + ", " + b + ", " + c + ")";
+    }
+    public static void main(String[] args) {
+        System.out.println("Тести Triangle:");
+        Triangle triangle = new Triangle(3, 4, 5);
+        System.out.println("Трикутник: " + triangle);
+        System.out.println("Периметр: " + triangle.getPerimeter()); // 12.0
+        System.out.println("Площа: " + triangle.getArea()); // 6.0
+
+        System.out.println("\nВведіть три сторони першого трикутника:");
+        Scanner scanner = new Scanner(System.in);
+        Triangle first = new Triangle(scanner.nextDouble(), scanner.nextDouble(), scanner.nextDouble());
+        System.out.println("Введіть три сторони другого трикутника:");
+        Triangle second = new Triangle(scanner.nextDouble(), scanner.nextDouble(), scanner.nextDouble());
+
+        System.out.println("Перший трикутник: " + first);
+        System.out.println("Периметр першого: " + first.getPerimeter());
+        System.out.println("Площа першого: " + first.getArea());
+        System.out.println("Другий трикутник: " + second);
+        System.out.println("Периметр другого: " + second.getPerimeter());
+        System.out.println("Площа другого: " + second.getArea());
+        first.compareTo(second);
+        System.out.println("equals: " + first.equals(second));
+        System.out.println("Кількість трикутників: " + Triangle.getCount());
+        scanner.close();
     }
 }

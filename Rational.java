@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Rational {
     private int a; // Чисельник
     private int b; // Знаменник
@@ -116,5 +117,36 @@ public class Rational {
     @Override
     public String toString() {
         return a + "/" + b;
+    }
+    public static void main(String[] args) {
+        System.out.println("Тести Rational:");
+        Rational x = new Rational(2, 4);
+        Rational y = new Rational(1, 3);
+        System.out.println("Скорочення: " + x); // 1/2
+        System.out.println("Сума: " + new Rational(1, 2).add(y)); // 5/6
+        System.out.println("Більше: " + x.isGreater(y)); // true
+
+        System.out.println("\nВведіть чисельник і знаменник першого дробу:");
+        Scanner scanner = new Scanner(System.in);
+        Rational first = new Rational(scanner.nextInt(), scanner.nextInt());
+        System.out.println("Введіть чисельник і знаменник другого дробу:");
+        Rational second = new Rational(scanner.nextInt(), scanner.nextInt());
+
+        System.out.println("Перший дріб: " + first);
+        System.out.println("Другий дріб: " + second);
+        System.out.println("Чисельник першого: " + first.getChyselnyk());
+        System.out.println("Знаменник першого: " + first.getZnamennyk());
+        System.out.println("Сума: " + new Rational(first.a, first.b).add(second));
+        System.out.println("Різниця: " + new Rational(first.a, first.b).vidniaty(second));
+        System.out.println("Добуток: " + new Rational(first.a, first.b).pomnozhyty(second));
+        if (second.getChyselnyk() != 0) {
+            System.out.println("Частка: " + new Rational(first.a, first.b).podilyty(second));
+        } else {
+            System.out.println("Частка: ділити на нуль не можна.");
+        }
+        System.out.println("Більше: " + first.isGreater(second));
+        System.out.println("equals: " + first.equals(second));
+        System.out.println("Кількість об'єктів: " + Rational.getCount());
+        scanner.close();
     }
 }
